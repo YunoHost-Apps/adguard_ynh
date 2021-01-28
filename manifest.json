@@ -3,8 +3,8 @@
     "id": "adguard",
     "packaging_format": 1,
     "description": {
-        "en": "AdGuard Home package for YunoHost.",
-        "fr": "AdGuard Home pour YunoHost."
+        "en": "Network-wide ads & trackers blocking DNS server",
+        "fr": ""
     },
     "version": "0.104.3~ynh1",
     "url": "https://github.com/AdguardTeam/AdGuardHome",
