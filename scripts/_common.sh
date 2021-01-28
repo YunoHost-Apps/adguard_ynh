@@ -19,32 +19,29 @@ pkg_dependencies="libcap2-bin libaprutil1"
 # FUTURE OFFICIAL HELPERS
 #=================================================
 
-# Create a dedicated nginx config
+# Check the architecture
 #
-# usage: ynh_add_nginx_config
-ynh_add_nginx_config () {
-	finalnginxconf="/etc/nginx/conf.d/$domain.d/$app.conf"
-	ynh_backup_if_checksum_is_different "$finalnginxconf"
-	sudo cp ../conf/nginx.conf "$finalnginxconf"
-
-	# To avoid a break by set -u, use a void substitution ${var:-}. If the variable is not set, it's simply set with an empty variable.
-	# Substitute in a nginx config file only if the variable is not empty
-	if test -n "${path_url:-}"; then
-		ynh_replace_string "__PATH__" "$path_url" "$finalnginxconf"
-	fi
-	if test -n "${domain:-}"; then
-		ynh_replace_string "__DOMAIN__" "$domain" "$finalnginxconf"
-	fi
-	if test -n "${port:-}"; then
-		ynh_replace_string "__PORT__" "$port" "$finalnginxconf"
-	fi
-	if test -n "${app:-}"; then
-		ynh_replace_string "__NAME__" "$app" "$finalnginxconf"
-	fi
-	if test -n "${final_path:-}"; then
-		ynh_replace_string "__FINALPATH__" "$final_path" "$finalnginxconf"
-	fi
-	ynh_store_file_checksum "$finalnginxconf"
-
-	sudo systemctl reload nginx
+# example: architecture=$(ynh_detect_arch)
+#
+# usage: ynh_detect_arch
+#
+# Requires YunoHost version 2.2.4 or higher.
+ynh_detect_arch(){
+        local architecture
+        if [ -n "$(uname -m | grep arm64)" ] || [ -n "$(uname -m | grep aarch64)" ]; then
+                architecture="arm64"
+        elif [ -n "$(uname -m | grep 86)" ]; then
+                architecture="i386"                
+        elif [ -n "$(uname -m | grep 64)" ]; then
+                architecture="x86-64"
+        elif [ -n "$(uname -m | grep armv7)" ]; then
+                architecture="armv7"
+        elif [ -n "$(uname -m | grep armv6)" ]; then
+                architecture="armv6"
+        elif [ -n "$(uname -m | grep armv5)" ]; then
+                architecture="armv5"
+        else
+                architecture="unknown"
+        fi
+        echo $architecture
 }
