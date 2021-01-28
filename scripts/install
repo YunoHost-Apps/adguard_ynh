@@ -139,7 +139,7 @@ ynh_store_file_checksum --file="$final_path/AdGuardHome.yaml"
 #=================================================
 
 # Set permissions to app files
-chown -R $app: $final_path
+chown -R root: $final_path
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

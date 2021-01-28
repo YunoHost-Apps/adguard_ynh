@@ -3,8 +3,8 @@ Description=adguard
 After=network.target
 
 [Service]
-User=__APP__
-Group=__APP__
+User=root
+Group=root
 Type=simple
 UMask=000
 WorkingDirectory=__FINALPATH__
