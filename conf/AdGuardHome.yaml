@@ -1,7 +1,7 @@
 bind_host: 0.0.0.0
 bind_port: 3000
 users:
-- name: __USER__
+- name: __ADMIN__
   password: __PWD__
 http_proxy: ""
 language: ""

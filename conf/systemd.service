@@ -3,11 +3,11 @@ Description=adguard
 After=network.target
 
 [Service]
-WorkingDirectory=__FINALPATH__
-User=root
-Group=users
+User=__APP__
+Group=__APP__
 Type=simple
 UMask=000
+WorkingDirectory=__FINALPATH__
 ExecStart=__FINALPATH__/AdGuardHome
 RestartSec=15
 Restart=always
