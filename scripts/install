@@ -114,13 +114,13 @@ case $(uname -m) in
 esac
 
 chmod +x ../conf/$htpasswd_arch
-password_gen=$(../conf/$htpasswd_arch -B -n -b "$ad_user" "$password" | sed "s/""$admin""://")
+password_gen=$(../conf/$htpasswd_arch -B -n -b "$admin" "$password" | sed "s/""$admin""://")
 
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
 
-cp ../source/AdGuardHome.yaml $final_path/AdGuardHome.yaml
+cp ../conf/AdGuardHome.yaml $final_path/AdGuardHome.yaml
 
 ynh_replace_string --match_string="__ADMIN__" --replace_string="$admin" --target_file="$final_path/AdGuardHome.yaml"
 ynh_replace_string --match_string="__PWD__" --replace_string="$password" --target_file="$final_path/AdGuardHome.yaml"

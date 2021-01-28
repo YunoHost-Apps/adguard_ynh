@@ -15,7 +15,7 @@ Quick description of this app.
 
 ## Screenshots
 
-![](Link to a screenshot of this app.)
+![](https://camo.githubusercontent.com/42b91eda808e2f68c98250679e29bcb0b0b4ef0364a4f67b6821982f4c87b1b3/68747470733a2f2f63646e2e616467756172642e636f6d2f7075626c69632f416467756172642f436f6d6d6f6e2f616467756172645f686f6d652e676966)
 
 ## Demo
 
@@ -62,8 +62,8 @@ How to configure this app: From an admin panel, a plain file with SSH, or any ot
 ## Links
 
  * Report a bug: https://github.com/YunoHost-Apps/adguard_ynh/issues
- * App website: Link to the official website of this app.
- * Upstream app repository: Link to the official repository of the upstream app.
+ * App website: https://adguard.com/fr/adguard-home/overview.html
+ * Upstream app repository: https://github.com/AdguardTeam/AdGuardHome/
  * YunoHost website: https://yunohost.org/
 
 ---
